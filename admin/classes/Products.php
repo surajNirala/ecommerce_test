@@ -88,9 +88,9 @@ class Products
 			//print_r($file['size']);
 
 			if ($file['size'] > (1024 * 2)) {
-				
 				$uniqueImageName = time()."_".$file['name'];
-				if (move_uploaded_file($file['tmp_name'], $_SERVER['DOCUMENT_ROOT']."/KhanStore/product_images/".$uniqueImageName)) {
+				// print_r(move_uploaded_file($file['tmp_name'], $_SERVER['DOCUMENT_ROOT']."/php/Ecommerce/product_images/"."suraj"));die;
+				if (move_uploaded_file($file['tmp_name'], $_SERVER['DOCUMENT_ROOT']."/php/Ecommerce/product_images/".$uniqueImageName)) {
 					
 					$q = $this->con->query("INSERT INTO `products`(`product_cat`, `product_brand`, `product_title`, `product_qty`, `product_price`, `product_desc`, `product_image`, `product_keywords`) VALUES ('$category_id', '$brand_id', '$product_name', '$product_qty', '$product_price', '$product_desc', '$uniqueImageName', '$product_keywords')");
 
@@ -138,7 +138,7 @@ class Products
 			if ($file['size'] > (1024 * 2)) {
 				
 				$uniqueImageName = time()."_".$file['name'];
-				if (move_uploaded_file($file['tmp_name'], $_SERVER['DOCUMENT_ROOT']."/KhanStore/product_images/".$uniqueImageName)) {
+				if (move_uploaded_file($file['tmp_name'], $_SERVER['DOCUMENT_ROOT']."/php/Ecommerce/product_images/".$uniqueImageName)) {
 					
 					$q = $this->con->query("UPDATE `products` SET 
 										`product_cat` = '$category_id', 
